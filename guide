@@ -1,4 +1,5 @@
 Guide for Cuddle.
+
 I recommend to learn telebot to understand code.
 The guide is based on this code and in further explanations everything will be based on it:
   import telebot
@@ -12,41 +13,59 @@ The guide is based on this code and in further explanations everything will be b
     ...
 
 
+Launch:
+--------------------------------------------------
+1. Move files "functions" and "simple_logger" to directory of main script.
+2. Create folder "logs" in same dir
+3. Import class Functions from functions.py and init class. 
+4. Done!
+--------------------------------------------------
+
+Classes:
+--------------------------------------------------
 1. send()
-Function takes 3 arguments (chat_id, text, markup *optional*) and returns message.
+  Function takes 3 arguments (chat_id, text, markup *optional*) and returns message.
 
 2. send_audio(), send_video(), send_photo(), send_document(), send_sticker()
-Function takes 3 arguments (chat_id, directory, text *optional*)
+  Function takes 3 arguments (chat_id, directory, text *optional*)
 
 3. edit()
-Function takes 3 arguments (text, chat_id, message_id)
-text - is future text, that replaces previous text of message.
-message_id - id of message. You can get it from 'send()'.
+  Function takes 3 arguments (text, chat_id, message_id)
+  text - is future text, that replaces previous text of message.
+  message_id - id of message. You can get it from 'send()'.
 
 4. reply()
-Function takes 3 arguments (message, text, markup *optional*).
-message - takes full message, not message.chat.id and etc.
+  Function takes 3 arguments (message, text, markup *optional*).
+  message - takes full message, not message.chat.id and etc.
 
 5. next_step()
-Function takes 2 arguments (message, func).
-Same as 'bot.register_next_step_handler(message, func)'
+  Function takes 2 arguments (message, func).
+  Same as 'bot.register_next_step_handler(message, func)'
 
 6. delete()
-Function takes 2 arguments (chat_id, message_id).
-message_id - id of message. You can get it from 'send()'.
+  Function takes 2 arguments (chat_id, message_id).
+  message_id - id of message. You can get it from 'send()'.
 
 7. inline_button()
-Function takes 4 arguments (text, callback *optional*, url *optional*, empty *optional*).
-empty - if True creates empty markup, else creates classic button
+  Function takes 4 arguments (text, callback *optional*, url *optional*, empty *optional*).
+  empty - if True creates empty markup, else creates classic button
 
 8. reply_keyboard()
-Function takes 4 arguments (text/texts, is_keyboard_resizeable *optional*).
-text/texts - can take only text or only texts. If both given, function won't work and send error. And if both args are None, function also won't work.
-is_keyboard_resizeable - same as resize_keyboard in ReplyKeyboardMarkup.
+  Function takes 4 arguments (text/texts, is_keyboard_resizeable *optional*).
+  text/texts - can take only text or only texts. If both given, function won't work and send error. And if both args are None, function also won't work.
+  is_keyboard_resizeable - same as resize_keyboard in ReplyKeyboardMarkup.
 
 9. open_webapp()
-Function takes 3 arguments (markup, text, url) and returns markup.
+  Function takes 3 arguments (markup, text, url) and returns markup.
 
 10. invoice()
-Function takes 8 arguments (chat_id, name, description, provider_token, currency, label, price, invoice="invoice").
-Same as bot.send_invoice(...)
+  Function takes 8 arguments (chat_id, name, description, provider_token, currency, label, price, invoice="invoice").
+  Same as bot.send_invoice(...)
+
+Additional:
+You can import SimpleLogger class from simple_logger to send messages in terminal.
+There are 3 functions:
+- request() for user actions
+- responce() for bot replies
+- server() for server client actions
+--------------------------------------------------
