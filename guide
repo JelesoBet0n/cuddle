@@ -1,0 +1,39 @@
+Guide for Cuddle.
+I recommend to learn telebot to understand code.
+The guide is based on this code and in further explanations everything will be based on it:
+  import telebot
+  from functions import Functions
+
+  bot = telebot.TeleBot("7170450029:AAHaQZBABaHUIWyn1TnRqSzkWEnvttoql9c")
+  func = Functions(telebot, bot)
+
+  @bot.message_handler(content_types=["text"])
+  def foo(message):
+    ...
+
+
+1. send()
+Function takes 3 arguments (chat_id, text, markup*optional*) and returns message.
+
+2. send_audio(), send_video(), send_photo(), send_document(), send_sticker()
+Function takes 3 arguments (chat_id, directory, text*optional*)
+
+3. edit()
+Function takes 3 arguments (text, chat_id, message_id)
+text - is future text, that replaces previous text of message.
+message_id - id of message. You can get it from 'send()'.
+
+4. reply()
+Function takes 3 arguments (message, text, markup*optional*).
+message - takes full message, not message.chat.id and etc.
+
+5. next_step()
+Function takes 2 arguments (message, func).
+Same as 'bot.register_next_step_handler(message, func)'
+
+6. delete()
+Function takes 2 arguments (chat_id, message_id).
+message_id - id of message. You can get it from 'send()'.
+
+7. inline_button()
+Function takes 4 arguments (text, callback*optional*, url*optional*, empty *optional*).
